@@ -1,0 +1,58 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "brand": {
+    "$type": "string",
+    "name": {
+      "$value": "GROWIEE",
+      "$description": "Brand name. Always set in uppercase."
+    },
+    "domain": {
+      "$value": "growiee.com"
+    },
+    "url": {
+      "$value": "https://growiee.com"
+    },
+    "industry": {
+      "$value": "Infant & Baby Apparel (0–9 Months)"
+    },
+    "market": {
+      "$value": "Sri Lanka",
+      "$description": "Direct-to-consumer, social commerce and e-commerce."
+    },
+    "tagline": {
+      "$value": "Gentle First Steps. Comfort That Grows With Them.",
+      "$description": "Core tagline."
+    },
+    "mission": {
+      "$value": "To engineer safe, non-toxic, ultra-soft apparel that adapts to an infant’s rapid growth during their first 9 months, offering parents absolute peace of mind and accessible luxury."
+    },
+    "pillar": {
+      "$description": "Brand value pillars, in priority order.",
+      "purity-safety": {
+        "title": { "$value": "Purity & Safety" },
+        "body": { "$value": "AZO-free dyes and non-toxic materials mean zero harsh chemicals on delicate skin." }
+      },
+      "thoughtful-design": {
+        "title": { "$value": "Thoughtful Design" },
+        "body": { "$value": "Envelope necks and scratch-free flat seams designed around an infant's daily movement." }
+      },
+      "value-convenience": {
+        "title": { "$value": "Value & Convenience" },
+        "body": { "$value": "Premium export-quality cotton offered in accessible, coordinated 3-piece packs delivered straight to the doorstep." }
+      }
+    },
+    "social": {
+      "facebook": {
+        "page-name": { "$value": "GROWIEE" },
+        "category": { "$value": "Shopping & Retail / Baby & Children's Clothing Store" },
+        "bio": {
+          "$value": "Premium organic & combed cotton gentle wear for 0–9M babies. Ultra-soft, non-toxic, and engineered for growth. Delivered islandwide across Sri Lanka."
+        },
+        "action-button": {
+          "$value": "Send WhatsApp Message",
+          "$description": "Routes directly to real-time sales support."
+        }
+      }
+    }
+  }
+}

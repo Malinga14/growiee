@@ -1,0 +1,6 @@
+# misc
+.DS_Store
+*.pem
+
+# dependencies (per-package ignores live in each subproject)
+**/node_modules

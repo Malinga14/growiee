@@ -1,0 +1,50 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "commerce": {
+    "currency": {
+      "$type": "string",
+      "$value": "LKR"
+    },
+    "price": {
+      "$type": "number",
+      "$description": "Target retail selling price (RSP) per 3-Kit Pack, in LKR.",
+      "retail-min": { "$value": 4850 },
+      "retail-max": { "$value": 5200 }
+    },
+    "delivery": {
+      "fee-min": {
+        "$type": "number",
+        "$value": 450,
+        "$description": "Flat-rate delivery fee charged at checkout, in LKR. Waived in multi-pack Free Shipping tiers."
+      },
+      "fee-max": {
+        "$type": "number",
+        "$value": 550
+      },
+      "coverage": {
+        "$type": "string",
+        "$value": "Islandwide across all 25 districts of Sri Lanka"
+      },
+      "couriers": {
+        "$type": "string",
+        "$value": "Koombiyo Delivery, Domex Courier, Pronto Lanka"
+      }
+    },
+    "payment": {
+      "$type": "string",
+      "primary": {
+        "$value": "Cash on Delivery (COD)"
+      },
+      "web": {
+        "$value": "Credit card checkout on growiee.com"
+      }
+    },
+    "channel": {
+      "$type": "string",
+      "$description": "Sales channels, in priority order.",
+      "meta": { "$value": "Facebook & Instagram" },
+      "whatsapp": { "$value": "WhatsApp Business" },
+      "web": { "$value": "growiee.com" }
+    }
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Gentle, premium design system for Growiee, a Sri Lankan D2C baby apparel brand (0–9 months). Royal Indigo on soft silk with Soft Violet, Bright Sky and Petal Pink accents, a line-art elephant mark, Pacifico wordmark, Nunito headlines and Google Sans text, built to Apple HIG, Material Design 3 and WCAG 2.2.",
+  "color": {
+    "$type": "color",
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.176,
+          0.204,
+          0.553
+        ],
+        "hex": "#2d348d"
+      }
+    },
+    "on-primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.992,
+          0.992,
+          0.992
+        ],
+        "hex": "#fdfdfd"
+      }
+    },
+    "primary-pressed": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.137,
+          0.165,
+          0.451
+        ],
+        "hex": "#232a73"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.424,
+          0.361,
+          0.906
+        ],
+        "hex": "#6c5ce7"
+      }
+    },
+    "on-secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.992,
+          0.992,
+          0.992
+        ],
+        "hex": "#fdfdfd"
+      }
+    },
+    "secondary-pressed": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.361,
+          0.306,
+          0.769
+        ],
+        "hex": "#5c4ec4"
+      }
+    },
+    "tertiary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.059,
+          0.737,
+          0.976
+        ],
+        "hex": "#0fbcf9"
+      }
+    },
+    "on-tertiary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.133,
+          0.184,
+          0.243
+        ],
+        "hex": "#222f3e"
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.969,
+          0.561,
+          0.702
+        ],
+        "hex": "#f78fb3"
+      }
+    },
+    "on-accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.133,
+          0.184,
+          0.243
+        ],
+        "hex": "#222f3e"
+      }
+    },
+    "surface": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.992,
+          0.992,
+          0.992
+        ],
+        "hex": "#fdfdfd"
+      }
+    },
+    "surface-muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.961,
+          0.961,
+          0.961
+        ],
+        "hex": "#f5f5f5"
+      }
+    },
+    "on-surface": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.133,
+          0.184,
+          0.243
+        ],
+        "hex": "#222f3e"
+      }
+    },
+    "on-surface-muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.341,
+          0.396,
+          0.455
+        ],
+        "hex": "#576574"
+      }
+    },
+    "outline": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.831,
+          0.831,
+          0.831
+        ],
+        "hex": "#d4d4d4"
+      }
+    },
+    "error": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.706,
+          0.137,
+          0.094
+        ],
+        "hex": "#b42318"
+      }
+    },
+    "on-error": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.992,
+          0.992,
+          0.992
+        ],
+        "hex": "#fdfdfd"
+      }
+    }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "base": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "xs": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "2xl": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "3xl": {
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "gutter": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "margin-mobile": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "margin-desktop": {
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "touch-target": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "max-width": {
+      "$value": {
+        "value": 1200,
+        "unit": "px"
+      }
+    }
+  },
+  "rounded": {
+    "$type": "dimension",
+    "none": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 28,
+        "unit": "px"
+      }
+    },
+    "full": {
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      }
+    }
+  },
+  "typography": {
+    "wordmark": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Pacifico",
+        "fontSize": {
+          "value": 56,
+          "unit": "px"
+        },
+        "fontWeight": 400
+      }
+    },
+    "headline-display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 48,
+          "unit": "px"
+        },
+        "fontWeight": 800,
+        "letterSpacing": {
+          "value": -0.01,
+          "unit": "em"
+        }
+      }
+    },
+    "headline-lg": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 32,
+          "unit": "px"
+        },
+        "fontWeight": 800
+      }
+    },
+    "headline-md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 24,
+          "unit": "px"
+        },
+        "fontWeight": 700
+      }
+    },
+    "body-lg": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 18,
+          "unit": "px"
+        },
+        "fontWeight": 400
+      }
+    },
+    "body-md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 16,
+          "unit": "px"
+        },
+        "fontWeight": 400
+      }
+    },
+    "body-sm": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 14,
+          "unit": "px"
+        },
+        "fontWeight": 400
+      }
+    },
+    "label-lg": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 16,
+          "unit": "px"
+        },
+        "fontWeight": 600
+      }
+    },
+    "label-md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 14,
+          "unit": "px"
+        },
+        "fontWeight": 600,
+        "letterSpacing": {
+          "value": 0.02,
+          "unit": "em"
+        }
+      }
+    },
+    "label-caps": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Google Sans",
+        "fontSize": {
+          "value": 12,
+          "unit": "px"
+        },
+        "fontWeight": 600,
+        "letterSpacing": {
+          "value": 0.18,
+          "unit": "em"
+        }
+      }
+    }
+  }
+}

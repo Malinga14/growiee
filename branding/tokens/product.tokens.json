@@ -1,0 +1,64 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "product": {
+    "pack": {
+      "pieces": {
+        "$type": "number",
+        "$value": 3,
+        "$description": "Every SKU is sold as a 3-Piece Apparel Pack (3-Kit)."
+      },
+      "name": {
+        "$type": "string",
+        "$value": "3-Kit Pack"
+      }
+    },
+    "size": {
+      "$description": "Size categories, 0–9 months. production-share is the 1 : 3 : 3 : 2 manufacturing run weighting.",
+      "nb": {
+        "label": { "$type": "string", "$value": "Newborn (NB)" },
+        "short-label": { "$type": "string", "$value": "NB" },
+        "focus": { "$type": "string", "$value": "Delicacy & Easy Access" },
+        "bundle": { "$type": "string", "$value": "3x Ultra-Soft Onesies with Scratch Mitt Fold-overs" },
+        "production-share": { "$type": "number", "$value": 1 }
+      },
+      "0-3m": {
+        "label": { "$type": "string", "$value": "0–3 Months" },
+        "short-label": { "$type": "string", "$value": "0–3M" },
+        "focus": { "$type": "string", "$value": "Daily Essentials & Comfort" },
+        "bundle": { "$type": "string", "$value": "3x Breathable Everyday Interlock Bodysuits" },
+        "production-share": { "$type": "number", "$value": 3 }
+      },
+      "3-6m": {
+        "label": { "$type": "string", "$value": "3–6 Months" },
+        "short-label": { "$type": "string", "$value": "3–6M" },
+        "focus": { "$type": "string", "$value": "Active Stretch & Mobility" },
+        "bundle": { "$type": "string", "$value": "3x Comfort-Fit Grow-With-Me Rompers" },
+        "production-share": { "$type": "number", "$value": 3 }
+      },
+      "6-9m": {
+        "label": { "$type": "string", "$value": "6–9 Months" },
+        "short-label": { "$type": "string", "$value": "6–9M" },
+        "focus": { "$type": "string", "$value": "Durable Softness" },
+        "bundle": { "$type": "string", "$value": "3x Heavy-Duty Interlock Play Sets / Sleepsuits" },
+        "production-share": { "$type": "number", "$value": 2 }
+      }
+    },
+    "claim": {
+      "$type": "string",
+      "$description": "Material and safety claims for trust badges and product copy.",
+      "cotton": {
+        "$value": "100% Combed Cotton",
+        "$description": "Primary trust badge. Interlock / combed cotton."
+      },
+      "dyes": {
+        "$value": "Non-Toxic AZO-Free Dyes"
+      },
+      "snaps": {
+        "$value": "Nickel-Free Snaps"
+      },
+      "construction": {
+        "$value": "Envelope Necks & Flat Seams"
+      }
+    }
+  }
+}
