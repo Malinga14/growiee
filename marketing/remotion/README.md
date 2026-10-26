@@ -142,19 +142,13 @@ Growthscope.
 
 ## GROWIEE stills
 
-GROWIEE social posts live in `src/growiee/` (assets in `public/growiee/`) and
-show up in the Studio next to the Growthscope videos. Render one alone with the
-GROWIEE entry point:
+GROWIEE stills live in `src/growiee/` (assets in `public/growiee/`) and show up
+in the Studio next to the Growthscope videos. Right now that is the logo colour
+versions. Render one alone with the GROWIEE entry point:
 
 ```bash
-# Instagram feed post: 1080 x 1350 JPEG, Instagram-ready
-npx remotion still src/growiee/index.ts growiee-ig-post-01-offer out/growiee-ig-post-01-offer.jpg --image-format=jpeg --jpeg-quality=92
-
-# Facebook posts: 2x PNG for extra sharpness
-npx remotion still src/growiee/index.ts growiee-fb-post-04-premium-v6-secondary out/post.png --scale=2
+npx remotion still src/growiee/index.ts growiee-logo-colorways-overview out/logos/growiee-logo-colorways-overview.png
 ```
-
-Change the price with `--props='{"price":"1,700"}'`.
 
 ## Notes / next steps
 

@@ -7,9 +7,8 @@
     },
     "price": {
       "$type": "number",
-      "$description": "Target retail selling price (RSP) per 3-Kit Pack, in LKR.",
-      "retail-min": { "$value": 4850 },
-      "retail-max": { "$value": 5200 }
+      "$description": "Retail selling price (RSP) per 3-Kit Pack, in LKR.",
+      "retail": { "$value": 2000 }
     },
     "delivery": {
       "fee-min": {

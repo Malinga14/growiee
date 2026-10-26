@@ -12,7 +12,7 @@ Growiee makes ultra-soft, non-toxic 100% combed cotton 3-piece sets for babies f
 
 The look is **calm, gentle and quietly premium**: deep Royal Indigo on airy Off-White Silk, lifted by three fresh accents (Soft Violet, Bright Sky, Petal Pink), generous white space, soft rounded shapes and one flowing line-art elephant. It should feel like a well-made gift box, not a toy shop. Nothing is loud, glossy or crowded; one idea per screen or post.
 
-- **Logo:** the line-art elephant mark (`branding/logos/growiee-logo.svg`), a single monoline stroke with an ear spiral and curled trunk. Pair it with the wordmark "Growiee" set in Pacifico, in the same flat colour as the mark.
+- **Logo:** the line-art elephant mark (`branding/logos/growiee-logo-v2.svg`), a single monoline stroke with an ear spiral and curled trunk. Pair it with the wordmark "Growiee" set in Pacifico, in the same flat colour as the mark.
 - **Name:** always written "Growiee", capital G only, never all caps in designs.
 - **Audience:** expecting and new parents, grandparents and gift buyers; mobile-first (social commerce and WhatsApp), so every screen is designed for a 360–430px phone first.
 - **Tagline:** "Gentle First Steps. Comfort That Grows With Them."

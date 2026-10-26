@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { fonts, growiee } from "../brand";
-import { MARK_PATH, MARK_VIEWBOX } from "./logoMark";
+import { MARK_EYE, MARK_PATHS, MARK_STROKE, MARK_VIEWBOX } from "./logoMark";
 
 // Colour explorations of the current Growiee mark: same shape, new mark and
 // background colours. One 1080 x 1080 still per colourway plus an overview.
@@ -31,7 +31,12 @@ export const colorways: Colorway[] = [
 
 const Mark: React.FC<{ color: string; size: number }> = ({ color, size }) => (
   <svg width={size} height={size} viewBox={MARK_VIEWBOX} style={{ display: "block" }}>
-    <path d={MARK_PATH} fill={color} fillRule="evenodd" />
+    <g fill="none" stroke={color} strokeWidth={MARK_STROKE} strokeLinecap="round" strokeLinejoin="round">
+      {MARK_PATHS.map((d, i) => (
+        <path key={i} d={d} />
+      ))}
+    </g>
+    <circle {...MARK_EYE} fill={color} />
   </svg>
 );
 

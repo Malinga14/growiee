@@ -103,15 +103,14 @@
         ("04", "Logo rules", "Clear space, sizes, colours, misuse"),
         ("05", "Colour", "Palette, values, pairings, proportions"),
         ("06", "Typography", "Families, scale, hierarchy"),
-        ("07", "Mascot", "Groowie, our little friend"),
-        ("08", "Imagery", "Photography direction"),
-        ("09", "Voice", "How Growiee speaks"),
-        ("10", "Product", "The 3-Kit, sizes and claims"),
-        ("11", "Digital system", "Components, spacing, accessibility"),
-        ("12", "Social media", "Profiles, posts, formats"),
-        ("13", "Applications", "Packaging, labels, stationery"),
-        ("14", "Commerce", "Price, delivery, payment, channels"),
-        ("15", "Files", "Where every asset lives"),
+        ("07", "Imagery", "Photography direction"),
+        ("08", "Voice", "How Growiee speaks"),
+        ("09", "Product", "The 3-Kit, sizes and claims"),
+        ("10", "Digital system", "Components, spacing, accessibility"),
+        ("11", "Social media", "Profiles, posts, formats"),
+        ("12", "Applications", "Packaging, labels, stationery"),
+        ("13", "Commerce", "Price, delivery, payment, channels"),
+        ("14", "Files", "Where every asset lives"),
       )
       #for r in rows [
         #grid(columns: (12mm, 46mm, 1fr), align: (left, left, left),
@@ -310,7 +309,7 @@
       lockup("indigo", indigo, 14mm)
     })),
     bad("Don't place the logo on busy photography.", box(width: 100%, height: 42mm, radius: 3mm, clip: true, {
-      image(P + "trio-3kit.png", width: 100%, height: 42mm, fit: "cover")
+      image(P + "stack-folded-3kit.png", width: 100%, height: 42mm, fit: "cover")
       place(center + horizon, lockup("indigo", indigo, 12mm))
     })),
     bad("Don't change the wordmark font or write it in capitals.", grid(columns: 2, column-gutter: 3mm, align: horizon,
@@ -435,7 +434,7 @@
   #row("wordmark", "Pacifico", "56px", 400, "1.1", "Growiee")
   #row("headline-display", "Nunito", "48px", 800, "1.1", "Softest first outfits")
   #row("headline-lg", "Nunito", "32px", 800, "1.2", "Made for the first nine months")
-  #row("headline-md", "Nunito", "24px", 700, "1.25", "The 0–3M Everyday 3-Kit")
+  #row("headline-md", "Nunito", "24px", 700, "1.25", "The 3–6M Grow-With-Me 3-Kit")
   #row("body-lg", "Google Sans", "18px", 400, "1.6", "Breathable 100% combed cotton that stays soft wash after wash.")
   #row("body-md", "Google Sans", "16px", 400, "1.6", "Envelope necks and flat seams make dressing quick and gentle.")
   #row("body-sm", "Google Sans", "14px", 400, "1.5", "Machine wash cold. Tumble dry low. Do not bleach.")
@@ -445,41 +444,16 @@
   #text(size: 8pt, fill: muted)[Sizes are for screens (px); in print use the same ratios. Body text never below 16 px on mobile, and it must follow the phone's text-size setting.]
 ]
 
-// ================================================================= 07 MASCOT
-#section("07", "Mascot", "Meet Groowie: the friendly face for playful moments.")
+// ================================================================= 07 IMAGERY
+#section("07", "Imagery", "Soft light, real babies, real cotton.")
 
 #page[
-  #header("07", "Mascot", "Groowie, our little friend.")
-  #grid(columns: (0.75fr, 1fr, 1.2fr), column-gutter: 8mm,
-    box(height: 120mm, radius: 4mm, clip: true, image("/branding/mascot/groowie-turnaround-digital-green.png", height: 120mm, fit: "cover")),
-    box(height: 120mm, width: 100%, radius: 4mm, clip: true, image("/branding/mascot/3d/groowie-3d-hero.png", width: 100%, height: 120mm, fit: "cover")),
-    [
-      #caps("Role")
-      #v(2mm)
-      #body-copy[Groowie is a gentle little dinosaur who brings joy to social posts, stickers, kids' content and unboxing moments. He is a character, not a logo.]
-      #v(5mm)
-      #caps("Use Groowie")
-      #v(2mm)
-      #bullet(([On playful social content, stickers, thank-you cards and packaging inserts.], [In his own colours (sunny yellow with green spikes), on Bright Sky, Indigo or Silk backgrounds.], [With plenty of space around him.]))
-      #v(5mm)
-      #caps("Never")
-      #v(2mm)
-      #bullet(([Use Groowie in place of the elephant logo or lock him up with the wordmark.], [Recolour, stretch or redraw him.], [Put him on labels, invoices or formal documents.]))
-      #v(4mm)
-      #text(size: 8pt, fill: muted)[3D source files: #raw("branding/mascot/3d/")]
-    ])
-]
-
-// ================================================================= 08 IMAGERY
-#section("08", "Imagery", "Soft light, real babies, real cotton.")
-
-#page[
-  #header("08", "Imagery", "Calm, natural and close to the fabric.")
+  #header("07", "Imagery", "Calm, natural and close to the fabric.")
   #grid(columns: (1.2fr, 1fr, 1fr), rows: (50mm, 50mm), gutter: 5mm,
     grid.cell(rowspan: 2, box(width: 100%, height: 100%, radius: 4mm, clip: true, image(P + "baby-sitting.png", width: 100%, height: 100%, fit: "cover"))),
     box(width: 100%, height: 100%, radius: 4mm, clip: true, image(P + "baby-portrait.png", width: 100%, height: 100%, fit: "cover")),
     box(width: 100%, height: 100%, radius: 4mm, clip: true, image(P + "stack-folded-3kit.png", width: 100%, height: 100%, fit: "cover")),
-    grid.cell(colspan: 2, box(width: 100%, height: 100%, radius: 4mm, clip: true, image(P + "trio-3kit.png", width: 100%, height: 100%, fit: "cover"))),
+    grid.cell(colspan: 2, box(width: 100%, height: 100%, radius: 4mm, clip: true, image(P + "stack-folded-3kit.png", width: 100%, height: 100%, fit: "cover"))),
   )
   #v(4mm)
   #grid(columns: (1fr, 1fr), column-gutter: 14mm,
@@ -487,11 +461,11 @@
     bullet(([*Don't:* harsh flash, cluttered rooms, heavy filters, neon colours, posed stock clichés, or text on top of a baby's face.],)))
 ]
 
-// ================================================================= 09 VOICE
-#section("09", "Voice", "How Growiee speaks: like a calm, caring friend who knows cotton.")
+// ================================================================= 08 VOICE
+#section("08", "Voice", "How Growiee speaks: like a calm, caring friend who knows cotton.")
 
 #page[
-  #header("09", "Voice", "Gentle, reassuring, honest and quietly premium.")
+  #header("08", "Voice", "Gentle, reassuring, honest and quietly premium.")
   #grid(columns: (1fr, 1fr, 1fr, 1fr), column-gutter: 4mm,
     ..(("Gentle", "Soft words, short sentences, never shouting. No ALL-CAPS sales copy."),
        ("Reassuring", "Lead with safety: what's in the fabric and what's not."),
@@ -523,28 +497,27 @@
         #v(1mm)
         *Facebook bio:* Premium combed cotton gentle wear for 0–9M babies. Ultra-soft, non-toxic, and engineered for growth. Delivered islandwide across Sri Lanka. \
         #v(1mm)
-        *WhatsApp greeting:* Hi! Thank you for reaching out to Growiee. Which size is your little one: NB, 0–3M, 3–6M or 6–9M?
+        *WhatsApp greeting:* Hi! Thank you for reaching out to Growiee. Which size is your little one: NB, 3–6M or 6–9M?
       ]
     ])
 ]
 
-// ================================================================= 10 PRODUCT
-#section("10", "Product", "The 3-Kit: three coordinated pieces for every stage.")
+// ================================================================= 09 PRODUCT
+#section("09", "Product", "The 3-Kit: three coordinated pieces for every stage.")
 
 #page[
-  #header("10", "Product", "Every Growiee set is a 3-Kit.")
+  #header("09", "Product", "Every Growiee set is a 3-Kit.")
   #grid(columns: (1.6fr, 1fr), column-gutter: 12mm,
     [
       #table(columns: (22mm, 46mm, 1fr, 16mm), stroke: (x, y) => if y == 0 { (bottom: 0.6pt + indigo) } else { (bottom: 0.4pt + hair) },
         inset: (x: 0mm, y: 3mm), align: horizon,
-        caps("Size"), caps("Focus"), caps("In the pack"), caps("Run"),
-        text(font: "Nunito", size: 13pt, fill: indigo)[NB], [Delicacy & Easy Access], [3× ultra-soft onesies with scratch-mitt fold-overs], [1],
-        text(font: "Nunito", size: 13pt, fill: indigo)[0–3M], [Daily Essentials & Comfort], [3× breathable everyday interlock bodysuits], [3],
-        text(font: "Nunito", size: 13pt, fill: indigo)[3–6M], [Active Stretch & Mobility], [3× comfort-fit grow-with-me rompers], [3],
-        text(font: "Nunito", size: 13pt, fill: indigo)[6–9M], [Durable Softness], [3× heavy-duty interlock play sets / sleepsuits], [2],
+        caps("Size"), caps("Focus"), caps("In the pack"), caps("Stock"),
+        text(font: "Nunito", size: 13pt, fill: indigo)[NB], [Delicacy & Easy Access], [3× ultra-soft onesies with scratch-mitt fold-overs], [10],
+        text(font: "Nunito", size: 13pt, fill: indigo)[3–6M], [Active Stretch & Mobility], [3× comfort-fit grow-with-me rompers], [10],
+        text(font: "Nunito", size: 13pt, fill: indigo)[6–9M], [Durable Softness], [3× heavy-duty interlock play sets / sleepsuits], [10],
       )
       #v(2mm)
-      #text(size: 8pt, fill: muted)[Run = production share (1 : 3 : 3 : 2).]
+      #text(size: 8pt, fill: muted)[Three sizes. Stock = packs held per size: 10 each, 30 packs in all.]
       #v(6mm)
       #caps("Product claims")
       #v(3mm)
@@ -557,11 +530,11 @@
     box(width: 100%, height: 112mm, radius: 4mm, clip: true, image(P + "stack-folded-3kit.png", width: 100%, height: 112mm, fit: "cover")))
 ]
 
-// ================================================================= 11 DIGITAL SYSTEM
-#section("11", "Digital system", "Components, spacing and accessibility for web, iOS and Android.")
+// ================================================================= 10 DIGITAL SYSTEM
+#section("10", "Digital system", "Components, spacing and accessibility for web, iOS and Android.")
 
 #page[
-  #header("11", "Digital system", "Components, built from DESIGN.md tokens.")
+  #header("10", "Digital system", "Components, built from DESIGN.md tokens.")
   #let btn(bg, fg, label, outline: false) = box(fill: bg, radius: 7mm, height: 12mm, inset: (x: 7mm),
     stroke: if outline { 1.2pt + indigo } else { none }, align(horizon, text(size: 10.5pt, weight: 600, fill: fg, label)))
   #let chip(label, on) = box(fill: if on { indigo } else { soft }, radius: 7mm, height: 11mm, inset: (x: 5mm), align(horizon, text(size: 9.5pt, weight: 600, fill: if on { silk } else { slate }, label)))
@@ -575,7 +548,7 @@
       #v(7mm)
       #caps("Size chips · selected = Royal Indigo")
       #v(3mm)
-      #stack(dir: ltr, spacing: 3mm, chip("NB", false), chip("0–3M", true), chip("3–6M", false), chip("6–9M", false))
+      #stack(dir: ltr, spacing: 3mm, chip("NB", false), chip("3–6M", true), chip("6–9M", false))
       #v(7mm)
       #caps("Badges")
       #v(3mm)
@@ -591,18 +564,18 @@
       #caps("Product card")
       #v(3mm)
       #box(width: 100%, fill: silk, radius: 5mm, inset: 4mm, stroke: 0.5pt + hair)[
-        #box(width: 100%, height: 58mm, radius: 4mm, clip: true, image(P + "trio-3kit.png", width: 100%, height: 58mm, fit: "cover"))
+        #box(width: 100%, height: 58mm, radius: 4mm, clip: true, image(P + "stack-folded-3kit.png", width: 100%, height: 58mm, fit: "cover"))
         #v(2mm)
-        #text(font: "Nunito", size: 14pt, weight: 800, fill: indigo)[Everyday Bodysuit 3-Kit] \
-        #text(size: 9pt, fill: muted)[0–3 months · 100% combed cotton] \
+        #text(font: "Nunito", size: 14pt, weight: 800, fill: indigo)[Grow-With-Me Romper 3-Kit] \
+        #text(size: 9pt, fill: muted)[3–6 months · 100% combed cotton] \
         #v(1mm)
-        #grid(columns: (1fr, auto), align: horizon, text(size: 13pt, weight: 600)[LKR 4,850], box(fill: indigo, radius: 6mm, inset: (x: 4mm, y: 2.4mm), text(size: 8.5pt, weight: 600, fill: silk)[Add to cart]))
+        #grid(columns: (1fr, auto), align: horizon, text(size: 13pt, weight: 600)[LKR 2,000], box(fill: indigo, radius: 6mm, inset: (x: 4mm, y: 2.4mm), text(size: 8.5pt, weight: 600, fill: silk)[Add to cart]))
       ]
     ])
 ]
 
 #page[
-  #header("11", "Digital system", "Spacing, shape and platform rules.")
+  #header("10", "Digital system", "Spacing, shape and platform rules.")
   #grid(columns: (1fr, 1fr, 1.25fr), column-gutter: 8mm,
     [
       #caps("Spacing · 4 px base, 8 px rhythm")
@@ -642,11 +615,11 @@
     ])
 ]
 
-// ================================================================= 12 SOCIAL
-#section("12", "Social media", "Where most families first meet Growiee.")
+// ================================================================= 11 SOCIAL
+#section("11", "Social media", "Where most families first meet Growiee.")
 
 #page[
-  #header("12", "Social media", "Profiles and post layouts.")
+  #header("11", "Social media", "Profiles and post layouts.")
   #grid(columns: (0.8fr, 1.9fr), column-gutter: 8mm,
     [
       #caps("Profile picture")
@@ -663,7 +636,7 @@
       #caps("Cover · 1640 × 624")
       #v(2mm)
       #box(width: 100%, height: 44mm, radius: 3mm, clip: true, fill: indigo, {
-        place(right + horizon, box(width: 46%, height: 44mm, clip: true, image(P + "trio-3kit.png", width: 100%, height: 44mm, fit: "cover")))
+        place(right + horizon, box(width: 46%, height: 44mm, clip: true, image(P + "stack-folded-3kit.png", width: 100%, height: 44mm, fit: "cover")))
         place(left + horizon, dx: 9mm, stack(spacing: 2mm, lockup("silk", silk, 13mm), text(font: "Nunito", size: 11pt, fill: silk)[Comfort that grows with them.]))
       })
       #v(5mm)
@@ -672,7 +645,7 @@
       #grid(columns: 3, column-gutter: 4mm,
         box(width: 100%, height: 66mm, radius: 3mm, clip: true, {
           image(P + "baby-portrait.png", width: 100%, height: 66mm, fit: "cover")
-          place(bottom + left, box(width: 100%, fill: indigo, inset: 3mm, stack(spacing: 1.5mm, text(font: "Nunito", size: 10pt, fill: silk)[Soft from the first hug], text(size: 6.5pt, fill: pink, tracking: 0.14em)[NEWBORN 3-KIT · LKR 4,850])))
+          place(bottom + left, box(width: 100%, fill: indigo, inset: 3mm, stack(spacing: 1.5mm, text(font: "Nunito", size: 10pt, fill: silk)[Soft from the first hug], text(size: 6.5pt, fill: pink, tracking: 0.14em)[NEWBORN 3-KIT · LKR 2,000])))
           place(top + right, dx: -2.5mm, dy: 2.5mm, mark("indigo", 7mm))
         }),
         box(width: 100%, height: 66mm, radius: 3mm, fill: pink, inset: 4mm)[
@@ -692,11 +665,11 @@
     ])
 ]
 
-// ================================================================= 13 APPLICATIONS
-#section("13", "Applications", "Packaging, labels and stationery.")
+// ================================================================= 12 APPLICATIONS
+#section("12", "Applications", "Packaging, labels and stationery.")
 
 #page[
-  #header("13", "Applications", "The brand in hand.")
+  #header("12", "Applications", "The brand in hand.")
   #grid(columns: (1.3fr, 0.7fr, 1fr), column-gutter: 7mm,
     panel(fill: soft, height: 112mm)[
       #caps("3-Kit gift box")
@@ -715,7 +688,7 @@
         place(top + center, dy: 4mm, circle(radius: 2mm, fill: silk))
         place(top + center, dy: 14mm, mark("silk", 15mm))
         place(top + center, dy: 36mm, wordmark(silk, 13pt))
-        place(bottom + center, dy: -6mm, text(size: 6pt, fill: pink, tracking: 0.14em)[0–3M · 3-KIT])
+        place(bottom + center, dy: -6mm, text(size: 6pt, fill: pink, tracking: 0.14em)[3–6M · 3-KIT])
       }))
     ],
     stack(spacing: 6mm,
@@ -736,16 +709,16 @@
   )
 ]
 
-// ================================================================= 14 COMMERCE
-#section("14", "Commerce", "How families find, order and receive Growiee.")
+// ================================================================= 13 COMMERCE
+#section("13", "Commerce", "How families find, order and receive Growiee.")
 
 #page[
-  #header("14", "Commerce", "Simple, safe, islandwide.")
+  #header("13", "Commerce", "Simple, safe, islandwide.")
   #grid(columns: (1fr, 1fr, 1fr), column-gutter: 6mm,
     panel(fill: indigo, height: 64mm)[
       #caps("Price · 3-Kit", fill: pink)
       #v(4mm)
-      #text(font: "Nunito", size: 22pt, fill: silk)[LKR 4,850 – 5,200]
+      #text(font: "Nunito", size: 30pt, fill: silk)[LKR 2,000]
       #v(2mm)
       #text(size: 9pt, fill: silk)[Premium export-quality cotton at an accessible price.]
     ],
@@ -754,14 +727,14 @@
       #v(4mm)
       #text(font: "Nunito", size: 20pt, fill: indigo)[All 25 districts]
       #v(2mm)
-      #text(size: 9pt)[Flat fee LKR 450–550, waived on multi-pack free-shipping tiers. \ Couriers: Koombiyo Delivery, Domex Courier, Pronto Lanka.]
+      #text(size: 9pt)[LKR 350 for one pack, plus LKR 100 for each extra pack: 2 packs LKR 450, 3 packs LKR 550. \ Couriers: Koombiyo Delivery, Domex Courier, Pronto Lanka.]
     ],
     panel(fill: soft, height: 64mm)[
       #caps("Payment")
       #v(4mm)
-      #text(font: "Nunito", size: 20pt, fill: indigo)[Cash on Delivery]
+      #text(font: "Nunito", size: 20pt, fill: indigo)[Bank deposit]
       #v(2mm)
-      #text(size: 9pt)[Primary payment method. Card checkout on growiee.com.]
+      #text(size: 9pt)[The only payment method for now. No Cash on Delivery and no card payments.]
     ],
   )
   #v(6mm)
@@ -769,27 +742,26 @@
   #v(3mm)
   #grid(columns: 3, column-gutter: 6mm,
     ..(("Facebook & Instagram", "Discovery, posts and ads; every post points to WhatsApp or the website."),
-       ("WhatsApp Business", "Real-time sales support and orders; reply with sizes NB, 0–3M, 3–6M, 6–9M."),
-       ("growiee.com", "Full catalogue, card checkout and size guide.")).map(c =>
+       ("WhatsApp Business", "Real-time sales support and orders; reply with sizes NB, 3–6M, 6–9M."),
+       ("growiee.com", "Full catalogue and size guide.")).map(c =>
       grid(columns: (3mm, 1fr), column-gutter: 4mm, rect(width: 3mm, height: 22mm, fill: pink, radius: 1mm),
         [#text(font: "Nunito", size: 13pt, fill: indigo, c.at(0)) \ #text(size: 9pt, c.at(1))])))
 ]
 
-// ================================================================= 15 FILES
-#section("15", "Files", "Where every brand asset lives.")
+// ================================================================= 14 FILES
+#section("14", "Files", "Where every brand asset lives.")
 
 #page[
-  #header("15", "Files", "One source of truth.")
+  #header("14", "Files", "One source of truth.")
   #table(columns: (70mm, 1fr), stroke: (x, y) => if y == 0 { (bottom: 0.6pt + indigo) } else { (bottom: 0.4pt + hair) },
     inset: (x: 0mm, y: 3.2mm),
     caps("Asset"), caps("Location"),
-    [Logo (Illustrator, SVG, PNG)], raw("branding/logos/growiee-logo.ai · .svg · .png"),
+    [Logo (Illustrator, SVG, PNG)], raw("branding/logos/growiee-logo-v2.ai · .svg · .png"),
     [Logo artwork for layouts], raw("branding/brand-guidelines/assets/mark-*.svg"),
     [Previous logo (archived)], raw("branding/logos/old-logo/"),
     [Design system], raw("DESIGN.md"),
     [Design tokens (CSS, W3C)], raw("branding/tokens/growiee.tokens.css · design.tokens.json"),
     [Brand, product, commerce, colour tokens], raw("branding/tokens/*.tokens.json"),
-    [Mascot Groowie (2D, 3D)], raw("branding/mascot/"),
     [Fonts (OFL): Pacifico, Nunito, Google Sans], raw("branding/brand-guidelines/fonts/"),
     [This guide (Typst source + PDF)], raw("branding/brand-guidelines/"),
     [Social posts and marketing], raw("marketing/"),

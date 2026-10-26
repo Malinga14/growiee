@@ -1,0 +1,42 @@
+{
+  "name": "growiee-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .next out node_modules/.cache",
+    "predev": "node scripts/sync-brand.mjs",
+    "dev": "next dev",
+    "dev:fresh": "npm run clean && next dev",
+    "prebuild": "node scripts/sync-brand.mjs",
+    "build": "next build",
+    "preview": "next build && npx --yes serve out -l 4000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@hugeicons/core-free-icons": "^4.3.5",
+    "@hugeicons/react": "^1.1.10",
+    "classnames": "^2.5.1",
+    "framer-motion": "^11.18.2",
+    "gsap": "^3.15.0",
+    "next": "^14.2.35",
+    "react": "^18",
+    "react-dom": "^18",
+    "recharts": "^2.15.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.35",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "description": "Growiee admin: unit economics, pricing, production and forecasts."
+}

@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+  }
+
+  body {
+    background-color: #fdfdfd;
+    color: #222f3e;
+    letter-spacing: -0.01em;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: #e3e0fb;
+    color: #222f3e;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2d348d;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Frosted chrome that content scrolls beneath. */
+  .material {
+    background-color: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  /* Instant press feedback, on pointer-down rather than release. */
+  .pressable {
+    transition:
+      transform 100ms ease-out,
+      background-color 150ms ease-out,
+      color 150ms ease-out;
+  }
+  .pressable:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Entrance choreography. CSS rather than JS so it runs from the first
+     paint of server-rendered HTML. */
+  .stagger > * {
+    animation: materialize 600ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+  .stagger > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .stagger > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .stagger > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+  .stagger > :nth-child(5) {
+    animation-delay: 240ms;
+  }
+  .stagger > :nth-child(6) {
+    animation-delay: 300ms;
+  }
+  .stagger > :nth-child(7) {
+    animation-delay: 360ms;
+  }
+  .stagger > :nth-child(8) {
+    animation-delay: 420ms;
+  }
+  .stagger > :nth-child(9) {
+    animation-delay: 480ms;
+  }
+  .stagger > :nth-child(10) {
+    animation-delay: 540ms;
+  }
+
+  /* Wipes in from the left, like a line being drawn. */
+  .animate-reveal {
+    animation: reveal 1.1s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+  /* Grow from zero to the element's own width / left offset. */
+  .animate-grow-width {
+    animation: grow-width 1.1s cubic-bezier(0.32, 0.72, 0, 1) 300ms both;
+  }
+  .animate-from-left {
+    animation: from-left 1.1s cubic-bezier(0.32, 0.72, 0, 1) 300ms both;
+  }
+}
+
+@keyframes materialize {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+}
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes grow-width {
+  from {
+    width: 0;
+  }
+}
+@keyframes from-left {
+  from {
+    left: 0;
+    transform: scale(0);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .material {
+    background-color: #fdfdfd;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressable:active:not(:disabled) {
+    transform: none;
+  }
+  .animate-cell-in,
+  .animate-shimmer,
+  .animate-reveal,
+  .animate-grow-width,
+  .animate-from-left,
+  .stagger > * {
+    animation: none;
+  }
+}
+
+/* Recharts draws a focus outline on click; the hover layer is enough. */
+.recharts-wrapper :focus {
+  outline: none;
+}
+
+/* Range slider in brand colours: indigo thumb on a fill track. */
+@layer components {
+  .brand-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 24px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .brand-range::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background: #e4e6f0;
+  }
+  .brand-range::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: #e4e6f0;
+  }
+  .brand-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -7px;
+    height: 20px;
+    width: 20px;
+    border-radius: 999px;
+    background: #2d348d;
+    border: 3px solid #ffffff;
+    box-shadow: 0 1px 4px rgba(34, 47, 62, 0.3);
+  }
+  .brand-range::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 999px;
+    background: #2d348d;
+    border: 3px solid #ffffff;
+    box-shadow: 0 1px 4px rgba(34, 47, 62, 0.3);
+  }
+  .brand-range:focus-visible {
+    outline: none;
+  }
+  .brand-range:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(45, 52, 141, 0.2);
+  }
+}
+
+/*
+ * Liquid glass — the floating sidebar and tab bar. A translucent, saturated
+ * blur with a bright specular top edge and a soft sheen, so the surface reads
+ * as a real material over the brand canvas. Bigger surface, deeper shadow.
+ */
+@layer components {
+  .liquid-glass {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.64) 0%,
+      rgba(255, 255, 255, 0.44) 100%
+    );
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 0 0 1px rgba(45, 52, 141, 0.04),
+      0 1px 2px rgba(34, 47, 62, 0.06),
+      0 28px 56px -28px rgba(45, 52, 141, 0.32);
+  }
+  /* Specular sheen: light pooling in the top corner and a soft diagonal glint. */
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        120% 50% at 0% 0%,
+        rgba(255, 255, 255, 0.6),
+        transparent 60%
+      ),
+      linear-gradient(
+        120deg,
+        transparent 55%,
+        rgba(255, 255, 255, 0.22) 70%,
+        transparent 85%
+      );
+  }
+
+  /* Brand canvas behind everything, so the glass has colour to bend. */
+  .brand-canvas {
+    background-color: #fbfbfe;
+    background-image:
+      radial-gradient(
+        42rem 34rem at -8% -10%,
+        rgba(108, 92, 231, 0.26),
+        transparent 70%
+      ),
+      radial-gradient(
+        34rem 30rem at 4% 58%,
+        rgba(15, 188, 249, 0.2),
+        transparent 70%
+      ),
+      radial-gradient(
+        38rem 30rem at 2% 110%,
+        rgba(247, 143, 179, 0.26),
+        transparent 70%
+      ),
+      radial-gradient(
+        46rem 32rem at 104% -12%,
+        rgba(45, 52, 141, 0.14),
+        transparent 70%
+      ),
+      radial-gradient(
+        36rem 30rem at 96% 70%,
+        rgba(15, 188, 249, 0.12),
+        transparent 70%
+      ),
+      radial-gradient(
+        40rem 30rem at 60% 115%,
+        rgba(108, 92, 231, 0.12),
+        transparent 70%
+      );
+    background-attachment: fixed;
+  }
+
+  /*
+   * Glass for content cards. Layered translucent white with a specular top
+   * edge over the soft canvas; deliberately no backdrop-filter. The canvas
+   * is already a blur, so blurring it again looks identical but would cost
+   * GPU work on every scroll frame across a dozen cards.
+   */
+  .glass-card {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.84) 0%,
+      rgba(255, 255, 255, 0.62) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      inset 0 0 0 1px rgba(45, 52, 141, 0.035),
+      0 1px 2px rgba(34, 47, 62, 0.04),
+      0 18px 40px -24px rgba(45, 52, 141, 0.22);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-card {
+      background: #ffffff;
+    }
+    .liquid-glass {
+      background: #f7f7fd;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .liquid-glass::before {
+      display: none;
+    }
+  }
+  @media (prefers-contrast: more) {
+    .glass-card {
+      background: #ffffff;
+      border-color: #d4d4d4;
+    }
+    .liquid-glass {
+      background: #ffffff;
+      border-color: #d4d4d4;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+}
+
+/*
+ * Independent scroll panes (desktop calculator pages). Hidden scrollbars, a
+ * little inner padding so card shadows aren't clipped, and soft fades where
+ * content meets the pane edge (Apple's scroll edge effect).
+ */
+@layer components {
+  @media (min-width: 1024px) {
+    .scroll-pane {
+      height: 100%;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      margin: 0 -8px;
+      padding: 12px 8px 32px;
+      /* Scrolls by wheel, trackpad, touch and keyboard; no visible bar. */
+      scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 12px,
+        #000 calc(100% - 28px),
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 12px,
+        #000 calc(100% - 28px),
+        transparent 100%
+      );
+    }
+    .scroll-pane::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+/* No visible scrollbars anywhere; scrolling still works by wheel, trackpad,
+   touch and keyboard. */
+@layer base {
+  html,
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
