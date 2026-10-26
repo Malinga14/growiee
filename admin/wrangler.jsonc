@@ -1,0 +1,15 @@
+// Cloudflare Workers deploy for the admin dashboard.
+// The site is a static export (next.config.mjs: output "export"), so the
+// Worker only serves the files `npm run build` writes to out/; no server code.
+// Having this file also stops `wrangler deploy` from auto-converting the app
+// with OpenNext, which needs a server build and Next.js 15+.
+{
+  "name": "growiee",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "./out",
+    // /brand serves brand.html; unknown paths get the built 404 page.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
