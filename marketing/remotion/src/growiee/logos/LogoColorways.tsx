@@ -29,7 +29,7 @@ export const colorways: Colorway[] = [
   { id: "charcoal-on-stone", name: "Charcoal on Stone", mark: "#232220", background: "#E9E4DA" },
 ];
 
-const Mark: React.FC<{ color: string; size: number }> = ({ color, size }) => (
+export const Mark: React.FC<{ color: string; size: number }> = ({ color, size }) => (
   <svg width={size} height={size} viewBox={MARK_VIEWBOX} style={{ display: "block" }}>
     <g fill="none" stroke={color} strokeWidth={MARK_STROKE} strokeLinecap="round" strokeLinejoin="round">
       {MARK_PATHS.map((d, i) => (

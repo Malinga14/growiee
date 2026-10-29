@@ -9,7 +9,7 @@ pick a concept, edit text, re-render, ship. No timeline editor required.
 - **1080 × 1920** (9:16 vertical), **30 fps** — TikTok / Reels / Shorts native.
 - Branding (colors, typeface, logos) is pulled from the [`branding`](../../branding)
   package so videos always match the site:
-  - colors import directly from `../../branding/tokens/growthscope.color.tokens.json`
+  - colors import from `src/growthscope.color.tokens.json`
     (GROWIEE stills in `src/growiee/` use `../../branding/tokens/color.tokens.json`)
   - logos are exported into `public/logos/`
   - typeface is **Outfit** via `@remotion/google-fonts`
@@ -149,6 +149,27 @@ versions. Render one alone with the GROWIEE entry point:
 ```bash
 npx remotion still src/growiee/index.ts growiee-logo-colorways-overview out/logos/growiee-logo-colorways-overview.png
 ```
+
+The Facebook page cover (1640 × 624, `src/growiee/social/FacebookBanner.tsx`)
+comes in two themes, `growiee-facebook-banner-silk` and
+`growiee-facebook-banner-indigo`. Add `--scale=2` for a sharper 3280 × 1248 export.
+
+More covers, all 1640 × 624, rendered as `growiee-facebook-banner-<id>`:
+
+- `src/growiee/social/FacebookBannerSet.tsx` (photos): `hold`, `cotton`, `line`, `petal`, `kit`
+- `src/growiee/social/FacebookBannerLogo.tsx` (logo only): `supergraphic`, `growth`, `pattern`
+- `src/growiee/social/FacebookBannerSupergraphic.tsx` (refined supergraphic): `supergraphic-v2`, `supergraphic-v3` (flowing line pattern)
+- `src/growiee/social/FacebookBannerFlourish.tsx` (generative pattern in the mark's line language): `flourish-ribbons` (v12 silk ribbons), plus drafts `flourish-curls`, `flourish-threads`
+- `src/growiee/social/FacebookBannerTexture.tsx` (fabric backgrounds): `drift`, `chiffon`, `midnight`
+
+Courier mailer (`src/growiee/packaging/CourierBag.tsx`): minimal centred logo,
+front print only, 12 × 16 in bag, one ink: Royal Indigo on milk white
+(`growiee-courier-bag-v2-front`, `-board`) or white on purple
+(`growiee-courier-bag-v2-purple-front`, `-purple-board`). Render fronts with
+`--scale=3` for 300 dpi. Finished files, including an outlined vector
+SVG for the printer, are in `packaging/courier-bag/`.
+
+Stock photos in `public/growiee/stock/` are Magnific (Freepik) downloads.
 
 ## Notes / next steps
 

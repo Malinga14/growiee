@@ -1,6 +1,6 @@
 import { loadFont } from "@remotion/google-fonts/Outfit";
-// Single source of truth: the brand palette lives in the branding package.
-import colorTokens from "../../../branding/tokens/growthscope.color.tokens.json";
+// Growthscope palette (kept here; branding/ holds only Growiee assets).
+import colorTokens from "./growthscope.color.tokens.json";
 
 const c = colorTokens.color;
 
