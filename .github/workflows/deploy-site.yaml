@@ -1,0 +1,77 @@
+# Deploys site/ to the growiee-site Cloudflare Worker.
+#   push to `site` -> uploads a preview version; production keeps serving the old one.
+#   push to `main` -> deploys to production.
+name: Deploy site
+
+on:
+  push:
+    branches: [main, site]
+    paths:
+      - site/**
+      - .github/workflows/deploy-site.yaml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-site-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name == 'main' && 'production' || 'preview' }}
+      url: ${{ steps.deploy.outputs.url }}
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run build
+
+      # The Cloudflare token stays on this step so package install scripts never see it.
+      - name: Deploy to Cloudflare
+        id: deploy
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.ndjson
+        run: |
+          upload() {
+            npx wrangler versions upload --preview-alias preview --tag "${GITHUB_SHA::7}" 2>&1 | tee "$RUNNER_TEMP/upload.log"
+          }
+
+          if [ "$GITHUB_REF_NAME" = main ]; then
+            npx wrangler deploy
+            url=$(jq -r 'select(.type == "deploy") | .targets[0] // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
+            label=Production
+          else
+            # Wrangler can't upload a version of a Worker that doesn't exist yet,
+            # so the very first run has to create it with a real deploy.
+            if ! upload; then
+              grep -q 'does not yet exist' "$RUNNER_TEMP/upload.log" || exit 1
+              npx wrangler deploy
+              upload
+            fi
+            url=$(jq -r 'select(.type == "version-upload") | .preview_alias_url // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
+            label=Preview
+          fi
+
+          if [ -z "$url" ]; then
+            echo "::error::Wrangler finished but returned no URL. Check that Preview URLs are enabled on the Worker."
+            exit 1
+          fi
+
+          url="https://${url#https://}"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "### $label link: $url" >> "$GITHUB_STEP_SUMMARY"
