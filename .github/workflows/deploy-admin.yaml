@@ -50,12 +50,22 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.ndjson
         run: |
+          upload() {
+            npx --yes wrangler@4.156.1 versions upload --preview-alias preview --tag "${GITHUB_SHA::7}" 2>&1 | tee "$RUNNER_TEMP/upload.log"
+          }
+
           if [ "$GITHUB_REF_NAME" = main ]; then
             npx --yes wrangler@4.156.1 deploy
             url=$(jq -r 'select(.type == "deploy") | .targets[0] // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
             label=Production
           else
-            npx --yes wrangler@4.156.1 versions upload --preview-alias preview --tag "${GITHUB_SHA::7}"
+            # Wrangler can't upload a version of a Worker that doesn't exist yet,
+            # so the very first run has to create it with a real deploy.
+            if ! upload; then
+              grep -q 'does not yet exist' "$RUNNER_TEMP/upload.log" || exit 1
+              npx --yes wrangler@4.156.1 deploy
+              upload
+            fi
             url=$(jq -r 'select(.type == "version-upload") | .preview_alias_url // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
             label=Preview
           fi
