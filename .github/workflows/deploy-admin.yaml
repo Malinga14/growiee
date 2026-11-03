@@ -1,0 +1,70 @@
+# Deploys admin/ (the static dashboard) to the growiee Cloudflare Worker whenever
+# admin/ changes. branding/ is watched too: the build copies brand files from it.
+#   push to `main`         -> deploys to production.
+#   push to any other branch -> uploads a preview version; production keeps serving the old one.
+name: Deploy admin
+
+on:
+  push:
+    branches: ['**']
+    paths:
+      - admin/**
+      - branding/**
+      - .github/workflows/deploy-admin.yaml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-admin-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name == 'main' && 'admin' || 'admin-preview' }}
+      url: ${{ steps.deploy.outputs.url }}
+    defaults:
+      run:
+        working-directory: admin
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: admin/.nvmrc
+          cache: npm
+          cache-dependency-path: admin/package-lock.json
+
+      - run: npm ci
+
+      # prebuild runs scripts/sync-brand.mjs, then next build writes out/.
+      - run: npm run build
+
+      # Same Cloudflare token and account as deploy-site.yaml; scoped to this step only.
+      - name: Deploy to Cloudflare
+        id: deploy
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.ndjson
+        run: |
+          if [ "$GITHUB_REF_NAME" = main ]; then
+            npx --yes wrangler@4.156.1 deploy
+            url=$(jq -r 'select(.type == "deploy") | .targets[0] // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
+            label=Production
+          else
+            npx --yes wrangler@4.156.1 versions upload --preview-alias preview --tag "${GITHUB_SHA::7}"
+            url=$(jq -r 'select(.type == "version-upload") | .preview_alias_url // empty' "$WRANGLER_OUTPUT_FILE_PATH" | tail -1)
+            label=Preview
+          fi
+
+          if [ -z "$url" ]; then
+            echo "::error::Wrangler finished but returned no URL. Check that Preview URLs are enabled on the Worker."
+            exit 1
+          fi
+
+          url="https://${url#https://}"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "### Admin $label link: $url" >> "$GITHUB_STEP_SUMMARY"
