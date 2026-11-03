@@ -6,6 +6,8 @@
 {
   "name": "growiee",
   "compatibility_date": "2026-10-19",
+  // Lets non-main branches get a preview link (see .github/workflows/deploy-admin.yaml).
+  "preview_urls": true,
   "assets": {
     "directory": "./out",
     // /brand serves brand.html; unknown paths get the built 404 page.

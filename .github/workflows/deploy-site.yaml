@@ -1,11 +1,11 @@
-# Deploys site/ to the growiee-site Cloudflare Worker.
-#   push to `site` -> uploads a preview version; production keeps serving the old one.
-#   push to `main` -> deploys to production.
+# Deploys site/ to the growiee-site Cloudflare Worker whenever site/ changes.
+#   push to `main`         -> deploys to production.
+#   push to any other branch -> uploads a preview version; production keeps serving the old one.
 name: Deploy site
 
 on:
   push:
-    branches: [main, site]
+    branches: ['**']
     paths:
       - site/**
       - .github/workflows/deploy-site.yaml
